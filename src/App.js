@@ -17,8 +17,7 @@ function App() {
   }, []);
 
   const getAllItems = () => {
-    axios
-      .get(url)
+    axios.get(url)
       .then((response) => {
         let allData = response.data;
         setItems(allData);
@@ -35,6 +34,7 @@ function App() {
           element={
             <>
               <SearchForm />
+              <br></br>
               <SavedItemsList items={items} />
               <SavedItem items={items} />
             </>

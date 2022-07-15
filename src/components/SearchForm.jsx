@@ -1,43 +1,63 @@
+import axios from "axios";
 import React from "react";
 import { useState } from "react";
 
 function SearchForm() {
 
   const [selectedQuery, setSelectedQuery] = useState('')
+  // const [searchedItems, setSearchedItems] = useState(''); 
 
   const list_names = [
-    "Combined Print and E-Book Fiction",
-    "Combined Print and E-Book Nonfiction",
-    "Hardcover Fiction",
-    "Hardcover Nonfiction",
-    "Trade Fiction Paperback",
-    "Mass Market Paperback",
-    "Paperback Nonfiction"
+    "combined-print-and-e-book-fiction",
+    "combined-print-and-e-book-nonfiction",
+    "hardcover-fiction",
+    "hardcover-nonfiction",
+    "trade-fiction-paperback",
+    "mass-market-paperback",
+    "paperback-nonfiction"
   ]
 
-  const handleSubmit = (e) =>{
+  
+
+  const apiCallWithQuery = (query) => {
+    console.log('apiCall query: ', query)
+    let url = 'https://api.nytimes.com/svc/books/v3/lists/current/' + query + '.json'
+    axios.get(url)
+    .then((response) => {
+      let searchedItemsData = response.data;
+      console.log('searchedItemsData: ', searchedItemsData)
+    })
+    .catch((error) => console.log("error: ", error));
+};
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setSelectedQuery(currentQuery)
+    console.log('selectedQuery at form submit: ', selectedQuery)
+    apiCallWithQuery(selectedQuery)
   }
 
   return (
     <>
       <div>Search Form</div>
+      <br></br>
       {/* when a button is pressed inside a form, it fires an event on the overall form  */}
-      <form>
+      <form onSubmit={handleSubmit}>
           <label>Category search query:</label>
+          <br></br>
           <select
+          value={selectedQuery}
           onChange={(e) =>{
             let currentQuery = e.target.value;  
+            console.log('currentQuery: ', currentQuery)
+            setSelectedQuery(currentQuery)
           }}
           >
           {list_names.map((name) =>(
             <option value={name} key={name}>{name}</option>
           ))}
           </select>
-        <button onSubmit={handleSubmit}>Submit</button>
+        <button>Submit</button>
       </form>
-      <p>Your category search query: {selectedQuery}</p>
     </>
   );
 }

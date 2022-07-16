@@ -5,7 +5,7 @@ import { useState } from "react";
 function SearchForm() {
 
   const [selectedQuery, setSelectedQuery] = useState('')
-  // const [searchedItems, setSearchedItems] = useState(''); 
+  const [searchedItems, setSearchedItems] = useState([]); 
 
   const list_names = [
     "combined-print-and-e-book-fiction",
@@ -26,6 +26,7 @@ function SearchForm() {
     .then((response) => {
       let searchedItemsData = response.data;
       console.log('searchedItemsData: ', searchedItemsData)
+      setSearchedItems(searchedItemsData)
     })
     .catch((error) => console.log("error: ", error));
 };

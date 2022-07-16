@@ -2,10 +2,9 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 
-function SearchForm() {
+function SearchForm({ setSearchedItems }) {
 
   const [selectedQuery, setSelectedQuery] = useState('')
-  const [searchedItems, setSearchedItems] = useState([]); 
 
   const list_names = [
     "combined-print-and-e-book-fiction",
@@ -16,8 +15,6 @@ function SearchForm() {
     "mass-market-paperback",
     "paperback-nonfiction"
   ]
-
-  
 
   const apiCallWithQuery = (query) => {
     console.log('apiCall query: ', query)

@@ -5,10 +5,13 @@ import SearchForm from "./components/SearchForm";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import SavedItem from "./components/SavedItem";
+import SearchedItemList from "./components/SearchedItemList";
+import SearchedItem  from './components/SearchedItem';
 
 function App() {
   
   const [items, setItems] = useState("");
+  const [searchedItems, setSearchedItems] = useState([]); 
 
   const url = "http://127.0.0.1:8000/api/lists-items/";
 
@@ -33,8 +36,12 @@ function App() {
           path="/"
           element={
             <>
-              <SearchForm />
+              <SearchForm setSearchedItems={setSearchedItems}/>
               <br></br>
+              <SearchedItem searchedItems={searchedItems}/> 
+              <SearchedItemList searchedItems={searchedItems}/>
+              <br></br>
+              {searchedItems[0] && <p>{searchedItems[0]['title']}</p> }
               <SavedItemsList items={items} />
               <SavedItem items={items} />
             </>

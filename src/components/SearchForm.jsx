@@ -21,7 +21,7 @@ function SearchForm() {
 
   const apiCallWithQuery = (query) => {
     console.log('apiCall query: ', query)
-    let url = 'https://api.nytimes.com/svc/books/v3/lists/current/' + query + '.json'
+    let url = 'http://127.0.0.1:8000/api/lists/' + query 
     axios.get(url)
     .then((response) => {
       let searchedItemsData = response.data;

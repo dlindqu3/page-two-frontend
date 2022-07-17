@@ -7,6 +7,9 @@ import { useState, useEffect } from "react";
 import SavedItem from "./components/SavedItem";
 import SearchedItemList from "./components/SearchedItemList";
 import SearchedItem  from './components/SearchedItem';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import About from "./components/About";
 
 function App() {
   
@@ -30,6 +33,7 @@ function App() {
 
   return (
     <Router>
+      <Header /> 
       <Routes>
         <Route
           exact
@@ -54,7 +58,16 @@ function App() {
               <SavedItem items={items} />
             </>
           }></Route>
+        <Route  
+        exact 
+        path='about/'
+        element={
+          <>
+          <About />
+          </>
+        }></Route>
       </Routes>
+      <Footer />
     </Router>
   );
 }

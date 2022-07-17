@@ -19,7 +19,7 @@ function SavedItem({ item }) {
   
     <>
     { item &&
-      <>
+      <div className="max-w-sm rounded overflow-hidden shadow-lg  border-solid border-2 border-charcoal-600">
       <div >author: {item.author}</div>
       <div >title: {item.title}</div>
       <div >description: {item.description}</div>
@@ -29,7 +29,7 @@ function SavedItem({ item }) {
       <div>Amazon url: {item.amazon_product_url}</div>
       <br></br>
       <button onClick={() => {handleDelete(item)}}>Delete</button>
-      </>
+      </div>
     }
     </>
     

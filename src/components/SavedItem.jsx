@@ -1,6 +1,20 @@
+import axios from "axios";
 import React from "react";
 
 function SavedItem({ item }) {
+
+  let handleDelete = (item) => {
+    console.log(item)
+    console.log('item id: ', item.id)
+    let url = 'http://127.0.0.1:8000/api/item-delete/' + item.id
+    axios.delete(url)
+      .then((response) => {
+        console.log('response from delete: ', response)
+      })
+      .catch((error) => console.log("error: ", error));
+
+  }
+
   return (
   
     <>
@@ -14,6 +28,7 @@ function SavedItem({ item }) {
       <div>publisher: {item.publisher}</div>
       <div>Amazon url: {item.amazon_product_url}</div>
       <br></br>
+      <button onClick={() => {handleDelete(item)}}>Delete</button>
       </>
     }
     </>

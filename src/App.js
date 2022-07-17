@@ -41,12 +41,19 @@ function App() {
               <SearchedItem searchedItems={searchedItems}/> 
               <SearchedItemList searchedItems={searchedItems}/>
               <br></br>
-              {searchedItems[0] && <p>{searchedItems[0]['title']}</p> }
-              <SavedItemsList items={items} />
-              <SavedItem items={items} />
             </>
           }
         ></Route>
+        <Route 
+          exact
+          path='saved-items/'
+          element={
+            <>
+              <p>saved-items page here</p>
+              <SavedItemsList items={items} />
+              <SavedItem items={items} />
+            </>
+          }></Route>
       </Routes>
     </Router>
   );

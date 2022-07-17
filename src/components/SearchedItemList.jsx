@@ -5,7 +5,7 @@ function SearchedItemList({ searchedItems }) {
   return (
     <>
     <div>SearchedItemList</div>
-    <div>
+    <div class="flex flex-wrap">
         {searchedItems && searchedItems.map((item) => <SearchedItem key={item.id} item={item} />)}
       </div>
     </>

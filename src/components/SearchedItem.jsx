@@ -24,7 +24,8 @@ function SearchedItem({ item }) {
     <>
     { item &&
       <>
-      <div >author: {item.author}</div>
+      <div class="max-w-sm rounded overflow-hidden shadow-lg  border-solid border-2 border-charcoal-600">
+      <div class="text-3xl font-bold underline">author: {item.author}</div>
       <div >title: {item.title}</div>
       <div >description: {item.description}</div>
       <div >weeks on list: {item.weeks_on_list}</div>
@@ -33,6 +34,7 @@ function SearchedItem({ item }) {
       <div>Amazon url: {item.amazon_product_url}</div>
       <br></br>
       <button onClick={() => {postNewItem(item)}}>Add to db</button>
+      </div>
       </>
     }
     </>

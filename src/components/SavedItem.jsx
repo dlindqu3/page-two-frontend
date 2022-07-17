@@ -11,6 +11,8 @@ function SavedItem({ item }) {
       <div >description: {item.description}</div>
       <div >weeks on list: {item.weeks_on_list}</div>
       <div >rank: {item.rank}</div>
+      <div>publisher: {item.publisher}</div>
+      <div>Amazon url: {item.amazon_product_url}</div>
       <br></br>
       </>
     }

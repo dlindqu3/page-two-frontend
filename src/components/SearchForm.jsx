@@ -6,16 +6,6 @@ function SearchForm({ setSearchedItems }) {
 
   const [selectedQuery, setSelectedQuery] = useState('')
 
-  const list_names = [
-    "combined-print-and-e-book-fiction",
-    "combined-print-and-e-book-nonfiction",
-    "hardcover-fiction",
-    "hardcover-nonfiction",
-    "trade-fiction-paperback",
-    "mass-market-paperback",
-    "paperback-nonfiction"
-  ]
-
   const apiCallWithQuery = (query) => {
     console.log('apiCall query: ', query)
     let url = 'http://127.0.0.1:8000/api/lists/' + query 
@@ -30,17 +20,18 @@ function SearchForm({ setSearchedItems }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('selectedQuery at form submit: ', selectedQuery)
+    if(selectedQuery === 'Select'){
+      alert('Please choose a valid option')
+    }
     apiCallWithQuery(selectedQuery)
   }
 
   return (
-    <>
-      <div>Search Form</div>
+    <div className="py-6">
       <br></br>
       {/* when a button is pressed inside a form, it fires an event on the overall form  */}
       <form onSubmit={handleSubmit}>
-          <label>Category search query:</label>
+          <label className="py-3">Please enter a category search query:</label>
           <br></br>
           <select
           value={selectedQuery}
@@ -50,13 +41,19 @@ function SearchForm({ setSearchedItems }) {
             setSelectedQuery(currentQuery)
           }}
           >
-          {list_names.map((name) =>(
-            <option value={name} key={name}>{name}</option>
-          ))}
+          <option selected='true'>Select</option>
+          <option value="combined-print-and-e-book-fiction">Combined print and ebook fiction</option>
+          <option value="combined-print-and-e-book-nonfiction">Combined print and ebook nonfiction</option>
+          <option value="hardcover-fiction">Hardcover fiction</option>
+          <option value="hardcover-nonfiction">Hardcover nonfiction</option>
+          <option value="trade-fiction-paperback">Trade fiction paperback</option>
+          <option value="mass-market-paperback">Mass market paperback</option>
+          <option value="paperback-nonfiction">Paperback nonfiction</option>
+
           </select>
         <button>Submit</button>
       </form>
-    </>
+    </div>
   );
 }
 

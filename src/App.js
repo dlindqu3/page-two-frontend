@@ -33,19 +33,22 @@ function App() {
 
   return (
     <Router>
-      <Header /> 
+      <div >
+      <Header/> 
       <Routes>
         <Route
           exact
           path="/"
           element={
-            <>
+            <div className='bg-slate-300'>
+            <div className='px-8'>
               <SearchForm setSearchedItems={setSearchedItems}/>
               <br></br>
               <SearchedItem searchedItems={searchedItems}/> 
               <SearchedItemList searchedItems={searchedItems}/>
               <br></br>
-            </>
+            </div>
+            </div>
           }
         ></Route>
         <Route 
@@ -68,6 +71,7 @@ function App() {
         }></Route>
       </Routes>
       <Footer />
+      </div>
     </Router>
   );
 }

@@ -19,7 +19,7 @@ function SavedItem({ item }) {
   
     <>
     { item &&
-      <div className="max-w-sm rounded overflow-hidden shadow-lg  border-solid border-2 border-charcoal-600">
+      <div className="max-w-sm rounded overflow-hidden shadow-lg border-solid border-2 border-charcoal-600 py-3">
       <div >author: {item.author}</div>
       <div >title: {item.title}</div>
       <div >description: {item.description}</div>

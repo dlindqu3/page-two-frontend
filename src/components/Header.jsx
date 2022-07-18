@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 
 function Header() {
   return (
-  <ul className='flex bg-gray-200 px-4'>
+  <div >
+  <ul className='flex bg-gray-200 px-4 justify-center'>
     <li className="mr-6 items-center">
       Page Two
     </li>
@@ -17,6 +18,7 @@ function Header() {
     <Link className="mr-6 items-center" to='about/'>About</Link>
     </li>
 </ul>
+</div>
   )
 }
 

@@ -33,15 +33,15 @@ function App() {
 
   return (
     <Router>
-      <div >
-      <Header/> 
+      <div className="">
+      <Header /> 
       <Routes>
         <Route
           exact
           path="/"
           element={
-            <div className='bg-slate-300'>
-            <div className='px-8'>
+            <div className='bg-slate-300 min-h-screen px-8'>
+            <div className=''>
               <SearchForm setSearchedItems={setSearchedItems}/>
               <br></br>
               <SearchedItem searchedItems={searchedItems}/> 
@@ -55,11 +55,10 @@ function App() {
           exact
           path='saved-items/'
           element={
-            <>
-              <p>saved-items page here</p>
+            <div className="bg-slate-300 min-h-screen px-8">
               <SavedItemsList items={items} />
               <SavedItem items={items} />
-            </>
+            </div>
           }></Route>
         <Route  
         exact 

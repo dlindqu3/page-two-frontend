@@ -24,16 +24,16 @@ function SearchedItem({ item }) {
     <>
     { item &&
       <>
-      <div className="max-w-sm rounded overflow-hidden shadow-lg  border-solid border-2 border-charcoal-600 bg-teal-500">
+      <div className="max-w-sm rounded overflow-hidden shadow-lg  border-solid border-2 border-charcoal-600 bg-teal-500 place-items-center">
+      <div className=''>
       <div >author: {item.author}</div>
       <div >title: {item.title}</div>
       <div >description: {item.description}</div>
       <div >weeks on list: {item.weeks_on_list}</div>
       <div >rank: {item.rank}</div>
-      <div>publisher: {item.publisher}</div>
-      <div>Amazon url: {item.amazon_product_url}</div>
       <br></br>
-      <button onClick={() => {postNewItem(item)}}>Add to db</button>
+      <button onClick={() => {postNewItem(item)}} className='bg-slate-300 hover:bg-blue-500 text-charcoal-700 font-bold hover:text-white py-2 px-8 border border-blue-500 hover:border-transparent rounded'>Add to db</button>
+      </div>
       </div>
       </>
     }

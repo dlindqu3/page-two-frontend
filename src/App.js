@@ -64,9 +64,9 @@ function App() {
         exact 
         path='about/'
         element={
-          <>
+          <div className="bg-slate-300 min-h-screen px-8">
           <About />
-          </>
+          </div>
         }></Route>
       </Routes>
       <Footer />

@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 
 function Header() {
   return (
+
+
   <div >
   <ul className='flex bg-gray-200 px-4 justify-center'>
-    <li className="mr-6 items-center">
-      Page Two
+    <li className="mr-6 items-center font-semibold">
+      <div>Page Two</div>
     </li>
     <li>
     <Link className="mr-6 items-center" to='/'>Home</Link>
